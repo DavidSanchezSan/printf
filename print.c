@@ -40,37 +40,70 @@
 // 	printf("Suma 9: %d\n", add(-1, 5));
 // 	return (0);
 // }
+// -------------------------------------------------------------------------------------------
+// INCORRECTO:
+// int add(int num_args, ...)
+// {
+//     va_list args;
+//     va_start(args, num_args);
+//     int total;
+// 	int	i;
 
-int add(int num_args, ...)
-{
-    va_list args;
-    va_start(args, num_args);
-    int total;
-	int	i;
+// 	total = 0;
+// 	i = 0;
+//     while (i < num_args)
+// 	{
+//         total += va_arg(args, int);
+// 		i++;
+//     }
+//     va_end(args);
+//     return (total);
+// }
 
-	total = 0;
-	i = 0;
-    while (i < num_args)
-	{
-        total += va_arg(args, int);
-		i++;
-    }
-    va_end(args);
-    return (total);
-}
+// int front_add(int num_args, ...)
+// {
+//     va_list args;
+//     va_start(args, num_args);
+//     int total = add(num_args, args);
+//     va_end(args);
+//     return (total);
+// }
 
-int front_add(int num_args, ...)
-{
-    va_list args;
-    va_start(args, num_args);
-    int total = add(num_args, args);
-    va_end(args);
-    return (total);
-}
+// int main(int argc, char* argv[])
+// {
+//     int total = front_add(5, 2, 1, 1, 1, 1);
+//     printf ("total = %d\n", total);
+//     return (0);
+// }
+// -------------------------------------------------------------------------------------------
+// CORRECTO:
+// int vadd(int num_args, va_list args) 
+// {
+//     int total;
+// 	int	i;
+	
+// 	total = 0;
+// 	i = 0;
+//     while (i < num_args)
+// 	{
+//         total += va_arg(args, int);
+// 		i++;
+//     }
+//     return (total);
+// }
 
-int main(int argc, char* argv[])
-{
-    int total = front_add(5, 2, 1, 1, 1, 1);
-    printf ("total = %d\n", total);
-    return (0);
-}
+// int add(int num_args, ...)
+// {
+//     va_list args;
+//     va_start(args, num_args);
+//     int total = vadd(num_args, args);
+//     va_end(args);
+//     return (total);
+// }
+
+// int main(int argc, char* argv[])
+// {
+//     int total = add(5, 2, 1, 1, 1, 1);
+//     printf("total = %d\n", total);
+//     return (0);
+// }
