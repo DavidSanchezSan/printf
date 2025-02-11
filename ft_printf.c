@@ -6,15 +6,16 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/10 14:34:54 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:44:23 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdarg.h>
 // Estudiar sobre: funciones variádicas, printf original, funciones útiles
 // de la librería, búffer.
-// Funciones autorizadas:malloc, free, write, va_start, va_arg, va_copy, va_end.
+// Funciones autorizadas: malloc, free, write, va_start, va_arg, va_copy, va_end.
 // Se permite el uso de libft
 // Objetivo: Escribir una librería que contenga la función ft_printf() que
 // imite a la original.
