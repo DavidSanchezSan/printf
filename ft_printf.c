@@ -6,13 +6,16 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/11 15:44:23 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:41:54 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include "ft_printf.h"
+
+
 // Estudiar sobre: funciones variádicas, printf original, funciones útiles
 // de la librería, búffer.
 // Funciones autorizadas: malloc, free, write, va_start, va_arg, va_copy, va_end.
@@ -43,7 +46,18 @@
 // mínimo (field minimum width) bajo todas las conversiones posibles.
 // - Gestiona todos los siguientes flags: '# +'(sí, uno de ellos es un espacio)
 
-int	ft_printf(char const *, ...)
+int	ft_printf(char const *str, ...)
 {
-	
+	va_list	args;
+	int	i;
+
+	i = 0;
+	va_start(args, str);
+	while (str[i] != '\0')
+	{
+		ft_putchar_fd(str[i], 1);
+		i++;
+	}
+	va_end(args);
+	return(i);
 }

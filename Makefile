@@ -1,0 +1,69 @@
+NAME	=	libftprintf.a
+
+CC		= 	cc
+
+CFLAGS	=	-Wall -Wextra -Werror
+
+LIBFT_DIR = ./Libft
+
+LIBFT = $(LIBFT_DIR)/libft.a
+
+INCLUDES = -I $(LIBFT_DIR)
+
+SRC		= ft_printf.c
+
+SRC_BONUS	=
+
+OBJ	= $(SRC:.c=.o)
+
+OBJ_BONUS	= $(SRC_BONUS:.c=.o)
+
+# "All" as the default target to build the library:
+all: $(NAME)
+
+#Rules to create a static library:
+$(NAME): $(OBJ) $(LIBFT)
+	ar -rcs $@ $^
+
+bonus:  $(OBJ) $(OBJ_BONUS)
+	ar -rcs $(NAME) $^
+
+# ar rcs $@ $^ is the command to create the static library.
+# r: Insert object files into the archive.
+# c: Create the archive if it doesn’t already exist.
+# s: Create an index for the library (optional, but helps with linking).
+# $@ refers to the target (libft.a), and $^ refers to the list of object files ($(OBJ)).
+
+#Compile .c into .o
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+# $< This reffers the input file.
+# $@ This reffers the output file.
+
+$(LIBFT):
+	make -C $(LIBFT_DIR) all clean
+
+#Clean the object files:
+clean:
+	$(RM) $(OBJ) $(OBJ_BONUS)
+
+#Clean all the generated files:
+fclean: clean
+	$(RM) $(NAME) $(LIBFT)
+
+#Clean all the generated files and then compile the project:
+re: fclean all
+
+#Default rule:
+.PHONY: all clean fclean re bonus
+#We use PHONY to ensure that make ALWAYS execute the rules, even if there are files called clean, fclean or re...
+
+#The command to create the library will be make.
+#The command to clean up the files created during the compilation is
+#fclean.
+
+#make to build the library (libft.a).
+#clean to remove object files.
+#fclean to remove object files and the library.
+#re to clean and rebuild the entire project.
