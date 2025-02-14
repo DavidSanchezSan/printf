@@ -4,13 +4,8 @@ CC		= 	cc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-LIBFT_DIR = ./Libft
-
-LIBFT = $(LIBFT_DIR)/libft.a
-
-INCLUDES = -I $(LIBFT_DIR)
-
-SRC		= ft_printf.c
+SRC		=	ft_printf.c \
+			utils.c \
 
 SRC_BONUS	=
 
@@ -40,9 +35,6 @@ bonus:  $(OBJ) $(OBJ_BONUS)
 
 # $< This reffers the input file.
 # $@ This reffers the output file.
-
-$(LIBFT):
-	make -C $(LIBFT_DIR) all clean
 
 #Clean the object files:
 clean:

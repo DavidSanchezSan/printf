@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/12 14:41:54 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:57:11 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,61 @@ int	ft_printf(char const *str, ...)
 {
 	va_list	args;
 	int	i;
+	int	count;
 
 	i = 0;
+	count = 0;
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
-		ft_putchar_fd(str[i], 1);
+		if (str[i] == '%')
+		{
+			i++;
+			if (str[i] == 'c')
+			{
+				count += ft_putchar_int_fd((va_arg(args, int)), 1);
+				i++;
+			}
+			if (str[i] == 's')
+			{
+				count += ft_putstr_int_fd((va_arg(args, char *)), 1);
+				i++;
+			}
+			// else if (str[i] == 'p')
+			// {
+				
+			// }
+			// else if (str[i] == 'd')
+			// {
+				
+			// }
+			// else if (str[i] == 'i')
+			// {
+				
+			// }
+			// else if (str[i] == 'u')
+			// {
+				
+			// }
+			// else if (str[i] == 'x')
+			// {
+				
+			// }
+			// else if (str[i] == 'X')
+			// {
+				
+			// }
+			// else if (str[i] == '%')
+			// {
+				
+			// }
+		}
+		else
+		{
+			count += ft_putchar_int_fd(str[i], 1);
+		}
 		i++;
 	}
 	va_end(args);
-	return(i);
+	return(count);
 }
