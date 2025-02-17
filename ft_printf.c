@@ -6,19 +6,16 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/14 14:57:11 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:01:12 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
 #include "ft_printf.h"
-
 
 // Estudiar sobre: funciones variádicas, printf original, funciones útiles
 // de la librería, búffer.
-// Funciones autorizadas: malloc, free, write, va_start, va_arg, va_copy, va_end.
+// Funciones autorizadas: malloc, free, write, va_start, va_arg, va_copy,
+// va_end.
 // Se permite el uso de libft
 // Objetivo: Escribir una librería que contenga la función ft_printf() que
 // imite a la original.
@@ -49,8 +46,8 @@
 int	ft_printf(char const *str, ...)
 {
 	va_list	args;
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 
 	i = 0;
 	count = 0;
@@ -74,37 +71,37 @@ int	ft_printf(char const *str, ...)
 			// {
 				
 			// }
-			// else if (str[i] == 'd')
-			// {
-				
-			// }
-			// else if (str[i] == 'i')
-			// {
-				
-			// }
+			else if (str[i] == 'd')
+			{
+				count += ft_putnbr_int_fd((va_arg(args, int)), 1);
+				i++;
+			}
+			else if (str[i] == 'i')
+			{
+				count += ft_putnbr_int_fd((va_arg(args, int)), 1);
+				i++;
+			}
 			// else if (str[i] == 'u')
 			// {
-				
 			// }
 			// else if (str[i] == 'x')
 			// {
-				
 			// }
 			// else if (str[i] == 'X')
 			// {
-				
 			// }
-			// else if (str[i] == '%')
-			// {
-				
-			// }
+			else if (str[i] == '%')
+			{
+				count += ft_putchar_int_fd('%', 1);
+				i++;
+			}
 		}
 		else
 		{
 			count += ft_putchar_int_fd(str[i], 1);
+			i++;
 		}
-		i++;
 	}
 	va_end(args);
-	return(count);
+	return (count);
 }

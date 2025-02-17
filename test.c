@@ -3,12 +3,14 @@
 
 int	main(void)
 {
-	int num;
-	//char c = 'H';
-	char *str = "Hola";
-	//printf("%d\n",ft_putstr_int_fd(str, 1));
-	printf("%d\n",ft_printf("%s", str));
-	printf("%d\n",printf("%s", str));
-	//ft_printf("%d\n",ft_printf("%c", c));
-	return(0);
+	// char c = 'H';
+	// char *str = "Hola";
+	unsigned int num1 = -1000000;
+	// int num2 = 0x2A;
+	// int num3 = 052;
+	// char *ptr = "World";
+	printf("%d\n", ft_printf("Adios %u mundo", num1));
+	printf("%d\n", printf("Adios %u mundo", num1));
+	// printf("%d\n",printf("%s", str));
+	return (0);
 }

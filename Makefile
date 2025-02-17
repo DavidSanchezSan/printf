@@ -6,6 +6,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 SRC		=	ft_printf.c \
 			utils.c \
+			test.c
 
 SRC_BONUS	=
 

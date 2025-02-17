@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 13:04:57 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/14 14:57:13 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:00:41 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	ft_putnbr_int_fd(int n, int fd)
 		ft_one_digit(&count, fd, n);
 	return (count);
 }
+
 int	ft_putstr_int_fd(char *s, int fd)
 {
 	int	count;
