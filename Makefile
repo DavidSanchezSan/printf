@@ -5,14 +5,11 @@ CC		= 	cc
 CFLAGS	=	-Wall -Wextra -Werror
 
 SRC		=	ft_printf.c \
-			utils.c \
-			test.c
+			utils1.c \
+			utils2.c \
 
-SRC_BONUS	=
 
 OBJ	= $(SRC:.c=.o)
-
-OBJ_BONUS	= $(SRC_BONUS:.c=.o)
 
 # "All" as the default target to build the library:
 all: $(NAME)
@@ -20,9 +17,6 @@ all: $(NAME)
 #Rules to create a static library:
 $(NAME): $(OBJ) $(LIBFT)
 	ar -rcs $@ $^
-
-bonus:  $(OBJ) $(OBJ_BONUS)
-	ar -rcs $(NAME) $^
 
 # ar rcs $@ $^ is the command to create the static library.
 # r: Insert object files into the archive.
@@ -39,7 +33,7 @@ bonus:  $(OBJ) $(OBJ_BONUS)
 
 #Clean the object files:
 clean:
-	$(RM) $(OBJ) $(OBJ_BONUS)
+	$(RM) $(OBJ)
 
 #Clean all the generated files:
 fclean: clean
@@ -49,7 +43,7 @@ fclean: clean
 re: fclean all
 
 #Default rule:
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 #We use PHONY to ensure that make ALWAYS execute the rules, even if there are files called clean, fclean or re...
 
 #The command to create the library will be make.
