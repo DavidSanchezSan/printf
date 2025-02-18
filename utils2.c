@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:42:24 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/18 14:45:52 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:27:44 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,18 @@ int	ft_putstr_int_fd(char *s, int fd)
 	int	count;
 
 	count = 0;
-	while (s[count] != '\0')
+	if (s == NULL)
 	{
-		write(fd, &s[count], 1);
-		count++;
+		write(1, "(null)", 6);
+		return (6);
+	}
+	else
+	{
+		while (s[count] != '\0')
+		{
+			write(fd, &s[count], 1);
+			count++;
+		}
 	}
 	return (count);
 }
@@ -76,8 +84,16 @@ int	ft_ptr_fd(void *ptr, int fd)
 	int	count;
 
 	count = 0;
-	write(fd, "0x", 2);
-	count += 2;
-	count += ft_hex_low_fd((unsigned long long)ptr, fd);
-	return (count);
+	if (ptr == NULL)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	else
+	{
+		write(fd, "0x", 2);
+		count += 2;
+		count += ft_hex_low_fd((unsigned long long)ptr, fd);
+		return (count);
+	}
 }

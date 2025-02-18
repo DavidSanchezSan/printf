@@ -16,7 +16,7 @@ all: $(NAME)
 
 #Rules to create a static library:
 $(NAME): $(OBJ) $(LIBFT)
-	ar -rcs $@ $^
+	ar -rcs $(NAME) $(OBJ)
 
 # ar rcs $@ $^ is the command to create the static library.
 # r: Insert object files into the archive.
