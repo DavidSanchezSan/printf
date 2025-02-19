@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   put_str_hex_ptr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:42:24 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/18 15:27:44 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:58:50 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ int	ft_putstr_int_fd(char *s, int fd)
 }
 
 // Function that prints a number as hexadecimal in lower characters
-int	ft_hex_low_fd(unsigned long long n, int fd)
+int	ft_hex_low_fd(unsigned int n, int fd)
 {
 	char	*c;
 	int		count;
 
 	c = "0123456789abcdef";
 	count = 0;
+	if (n < 0)
+		n = -n;
 	if (n > 15)
 	{
 		count += ft_hex_low_fd(n / 16, fd);
@@ -57,13 +59,15 @@ int	ft_hex_low_fd(unsigned long long n, int fd)
 }
 
 // Function that prints a number as hexadecimal in upper characters
-int	ft_hex_upp_fd(unsigned long long n, int fd)
+int	ft_hex_upp_fd(unsigned int n, int fd)
 {
 	char	*c;
 	int		count;
 
 	c = "0123456789ABCDEF";
 	count = 0;
+	if (n < 0)
+		n = -n;
 	if (n > 15)
 	{
 		count += ft_hex_upp_fd(n / 16, fd);

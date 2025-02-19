@@ -5,9 +5,8 @@ CC		= 	cc
 CFLAGS	=	-Wall -Wextra -Werror
 
 SRC		=	ft_printf.c \
-			utils1.c \
-			utils2.c \
-
+			put_char_nbr_digit.c \
+			put_str_hex_ptr.c \
 
 OBJ	= $(SRC:.c=.o)
 
