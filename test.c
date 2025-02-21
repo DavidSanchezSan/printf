@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:56:33 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/18 14:37:10 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:17:02 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 // int	main(void)
 // {
-// 	char c = 'R';
+// 	char c = '%';
 // 	char a = 'A';
-// 	char *str = "Hola";
-// 	// unsigned int uns_num = 123456789;
-// 	int num1 = 250;
-// 	// int num2 = 0x2A;
-// 	// int num3 = 052;
-// 	char *ptr = "World";
-// 	printf("%d\n", ft_printf("Adios %p %x mundo %c %c %s", ptr, num1, c, a, str));
-// 	printf("%d\n", printf("Adios %p %x mundo %c %c %s", ptr, num1, c, a, str));
-// 	// printf("%d\n",printf("%s", str));
+// 	char *str = NULL;
+// 	unsigned long long uns_num = 9223372036854775807LL;
+// 	int num1 = -250;
+// 	int num2 = 0x2A;
+// 	int num3 = 052;
+// 	char *ptr = NULL;
+// ft_printf("%d\n", ft_printf("ka%"));
+// printf("%d\n", printf("ka%"));
+// 	printf("%d\n",printf("%s", str));
 // 	return (0);
 // }
