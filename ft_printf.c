@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/21 15:07:53 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:06:43 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ int	ft_printf(char const *str, ...)
 		return (-1);
 	while (str[i] != '\0')
 	{
-		if ((str[i] == '%') && (str[i + 1] == '\0') && i == 0)
-			return (-1);
-		else if (str[i] == '%' && str[i + 1] != '\0')
-			count = ft_print_cases(str, args, count, &i);
+		if (str[i] == '%' && str[i + 1] == '\0' && (str[0] == '%') && i != 0)
+			count = ft_print_cases(str, args, count, &i) - 1;
 		else if (str[i] == '%' && str[i + 1] == '\0')
 			count = -1;
+		else if (str[i] == '%' && str[i + 1] != '\0')
+			count = ft_print_cases(str, args, count, &i);
+		else if ((str[i] == '%' && str[i + 1] == '\0') && (str[0] == '%'))
+			count = ft_print_cases(str, args, count, &i);
 		else
 			count += ft_putchar_int_fd(str[i], 1);
 		i++;

@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(LIBFT)
 	ar -rcs $(NAME) $(OBJ)
 
-# ar rcs $@ $^ is the command to create the static library.
+# ar rcs $@ $^ is a possible command to create the static library.
 # r: Insert object files into the archive.
 # c: Create the archive if it doesn’t already exist.
 # s: Create an index for the library (optional, but helps with linking).
@@ -25,7 +25,7 @@ $(NAME): $(OBJ) $(LIBFT)
 
 #Compile .c into .o
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # $< This reffers the input file.
 # $@ This reffers the output file.
@@ -44,10 +44,6 @@ re: fclean all
 #Default rule:
 .PHONY: all clean fclean re
 #We use PHONY to ensure that make ALWAYS execute the rules, even if there are files called clean, fclean or re...
-
-#The command to create the library will be make.
-#The command to clean up the files created during the compilation is
-#fclean.
 
 #make to build the library (libft.a).
 #clean to remove object files.
