@@ -6,12 +6,12 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:12:27 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/24 14:06:43 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:00:18 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+// Function that checks the flags to select the arguments:
 int	ft_print_cases(char const *str, va_list args, int count, int *i)
 {
 	(*i)++;
@@ -41,6 +41,7 @@ int	ft_print_cases(char const *str, va_list args, int count, int *i)
 	return (count);
 }
 
+// MAin printf function:
 int	ft_printf(char const *str, ...)
 {
 	int		i;

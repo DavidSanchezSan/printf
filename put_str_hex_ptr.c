@@ -6,7 +6,7 @@
 /*   By: dasanche <dasanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:42:24 by dasanche          #+#    #+#             */
-/*   Updated: 2025/02/24 14:06:59 by dasanche         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:00:31 by dasanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	ft_hex_low_fd(unsigned long n, int fd)
 
 	c = "0123456789abcdef";
 	count = 0;
-	if (n < 0)
-		n = -n;
 	if (n > 15)
 	{
 		count += ft_hex_low_fd(n / 16, fd);
@@ -66,8 +64,6 @@ int	ft_hex_upp_fd(unsigned long n, int fd)
 
 	c = "0123456789ABCDEF";
 	count = 0;
-	if (n < 0)
-		n = -n;
 	if (n > 15)
 	{
 		count += ft_hex_upp_fd(n / 16, fd);
